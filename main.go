@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/fnoon/astrolib/date"
+	"github.com/fnoon/astrolib/num"
+	"github.com/fnoon/astrolib/roman_date"
 	"io"
 	"os"
 )
@@ -21,12 +22,13 @@ func main() {
 func run(args []string, stdin io.Reader, stderr io.Writer, stdout io.Writer) error {
 	// ...
 	fmt.Printf("Hello: %v\n", args)
-	date := date.Date{
+	date := roman_date.Date{
 		Year:  2024,
-		Month: date.Aug,
+		Month: roman_date.Aug,
 		Day:   26,
 	}
 
-	fmt.Print(date)
+	fmt.Println(date)
+	fmt.Println(num.Ceil(4.5))
 	return nil
 }
