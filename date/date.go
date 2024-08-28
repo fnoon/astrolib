@@ -26,7 +26,7 @@ func (m Month) Index() int {
 }
 
 func (m Month) String() string {
-	return [...]string{
+	return [...]string {
 		"January",
 		"February",
 		"March",

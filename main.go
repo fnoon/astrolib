@@ -8,10 +8,17 @@ import (
 )
 
 func main() {
-	os.Exit(run(os.Args, os.Stdin, os.Stderr, os.Stdout))
+	err := run(os.Args, os.Stdin, os.Stderr, os.Stdout)
+	var status int
+	if err != nil {
+		status = 1
+	} else {
+		status = 0
+	}
+	os.Exit(status)
 }
 
-func run(args []string, stdin io.Reader, stderr io.Writer, stdout io.Writer) int {
+func run(args []string, stdin io.Reader, stderr io.Writer, stdout io.Writer) error {
 	// ...
 	fmt.Printf("Hello: %v\n", args)
 	date := date.Date{
@@ -21,5 +28,5 @@ func run(args []string, stdin io.Reader, stderr io.Writer, stdout io.Writer) int
 	}
 
 	fmt.Print(date)
-	return 0
+	return nil
 }
